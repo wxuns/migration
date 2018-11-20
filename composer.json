@@ -1,0 +1,13 @@
+{
+    "name": "wxuns/migration",
+    "description": "this console of polite\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[migration \u001b[2~of polite",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "wxuns",
+            "email": "php7@gmail.com"
+        }
+    ],
+    "require": {}
+}
