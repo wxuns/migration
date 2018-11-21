@@ -9,6 +9,11 @@
             "email": "php7@gmail.com"
         }
     ],
-    "require": {
-    }
+    "psr-4": {
+        "Phinx\\": "phinx/src/Phinx",
+        "Wxuns\\Migration\\": "src"
+    },
+    "files": [
+        "src/config.php"
+    ]
 }
