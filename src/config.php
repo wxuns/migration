@@ -8,6 +8,7 @@
  */
 function Commands()
 {
+    echo(21312312);
     return [
 
     ];
