@@ -11,11 +11,11 @@
     ],
     "autoload": {
         "psr-4": {
-            "Phinx\\": "phinx/src/Phinx",
-            "Wxuns\\Migration\\": "src"
+            "Phpmig\\": "phpmig/src/Phpmig",
+            "Polite\\Migration\\": "src"
         },
         "files": [
-            "src/config.php"
+            "src/MigrationCommand.php"
         ]
     },
     "require":{
