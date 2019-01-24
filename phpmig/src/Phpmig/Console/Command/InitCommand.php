@@ -29,7 +29,7 @@ class InitCommand extends AbstractCommand
      */
     protected function configure()
     {
-        $this->setName('init')
+        $this->setName('migrate:init')
              ->setDescription('Initialise this directory for use with phpmig')
              ->setHelp(<<<EOT
 The <info>init</info> command creates a skeleton bootstrap file and a migrations directory
@@ -47,7 +47,7 @@ EOT
     {
         $cwd = getcwd();
         $bootstrap = $cwd . DIRECTORY_SEPARATOR . 'phpmig.php';
-        $relative = 'migrations';
+        $relative = 'resources/databases/migrations';
         $migrations = $cwd . DIRECTORY_SEPARATOR . $relative;
 
         $this->initMigrationsDir($migrations, $output);
