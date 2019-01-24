@@ -33,7 +33,7 @@ class GenerateCommand extends AbstractCommand
     {
         parent::configure();
 
-        $this->setName('generate')
+        $this->setName('migrate:generate')
              ->addArgument('name', InputArgument::REQUIRED, 'The name for the migration')
              ->addArgument('path', InputArgument::OPTIONAL, 'The directory in which to put the migration ( optional if phpmig.migrations_path is setted )')
              ->setDescription('Generate a new migration')

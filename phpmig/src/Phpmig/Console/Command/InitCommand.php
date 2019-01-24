@@ -108,13 +108,38 @@ EOT
 <?php
 
 use \Phpmig\Adapter;
+use Pimple\Container;
+use Illuminate\Database\Capsule\Manager as Capsule;
 
-\$container = new ArrayObject();
+\$container = new Container();
+\$database = (new \Polite\Console\Event\Config())->getConfig('application','database');
+\$container['config'] = [
+    'driver'    => \$database['driver'],
+    'host'      => \$database['host'],
+    'database'  => \$database['database'],
+    'username'  => \$database['username'],
+    'password'  => \$database['password'],
+    'charset'   => \$database['charset'],
+    'collation' => \$database['collation'],
+    'prefix'    => \$database['prefix'],
+];
+\$container['db'] = function (\$c) {
+    \$capsule = new Capsule();
+    \$capsule->addConnection(\$c['config']);
+    \$capsule->setAsGlobal();
+    \$capsule->bootEloquent();
 
+    return \$capsule;
+};
+
+\$container['phpmig.adapter'] = function(\$c) {
+    return new Adapter\Illuminate\Database(\$c['db'], 'migrations');
+};
+\$relative = 'resources/databases/migrations';
 // replace this with a better Phpmig\Adapter\AdapterInterface
-\$container['phpmig.adapter'] = new Adapter\File\Flat(__DIR__ . DIRECTORY_SEPARATOR . '$migrations/.migrations.log');
+\$container['phpmig.adapter'] = new Adapter\File\Flat(__DIR__ . DIRECTORY_SEPARATOR . \$relative);
 
-\$container['phpmig.migrations_path'] = __DIR__ . DIRECTORY_SEPARATOR . 'migrations';
+\$container['phpmig.migrations_path'] = __DIR__ . DIRECTORY_SEPARATOR . \$relative;
 
 // You can also provide an array of migration files
 // \$container['phpmig.migrations'] = array_merge(
