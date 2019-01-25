@@ -112,6 +112,7 @@ EOT
 <?php
 
 use Phpmig\Migration\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class $className extends Migration
 {

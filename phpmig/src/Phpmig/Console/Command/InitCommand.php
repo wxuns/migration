@@ -71,7 +71,7 @@ EOT
             return;
         }
 
-        if (false === mkdir($migrations)) {
+        if (false === mkdir($migrations,0777,true)) {
             throw new \RuntimeException(sprintf('Could not create directory "%s"', $migrations));
         }
 
@@ -136,16 +136,7 @@ use Illuminate\Database\Capsule\Manager as Capsule;
     return new Adapter\Illuminate\Database(\$c['db'], 'migrations');
 };
 \$relative = 'resources/databases/migrations';
-// replace this with a better Phpmig\Adapter\AdapterInterface
-\$container['phpmig.adapter'] = new Adapter\File\Flat(__DIR__ . DIRECTORY_SEPARATOR . \$relative);
-
 \$container['phpmig.migrations_path'] = __DIR__ . DIRECTORY_SEPARATOR . \$relative;
-
-// You can also provide an array of migration files
-// \$container['phpmig.migrations'] = array_merge(
-//     glob('migrations_1/*.php'),
-//     glob('migrations_2/*.php')
-// );
 
 return \$container;
 PHP;
