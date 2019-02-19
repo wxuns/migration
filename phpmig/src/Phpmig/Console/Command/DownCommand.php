@@ -33,7 +33,7 @@ class DownCommand extends AbstractCommand
     {
         parent::configure();
 
-        $this->setName('down')
+        $this->setName('migrate:down')
              ->addArgument('version', InputArgument::REQUIRED, 'The version number for the migration')
              ->setDescription('Revert a specific migration')
              ->setHelp(<<<EOT

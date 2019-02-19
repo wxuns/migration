@@ -111,7 +111,7 @@ EOT
             $contents = <<<PHP
 <?php
 
-use Phpmig\Migration\Migration;
+use \Polite\Migration\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
 class $className extends Migration

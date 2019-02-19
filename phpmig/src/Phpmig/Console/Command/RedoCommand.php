@@ -33,7 +33,7 @@ class RedoCommand extends AbstractCommand
     {
         parent::configure();
 
-        $this->setName('redo')
+        $this->setName('migrate:redo')
              ->addArgument('version', InputArgument::REQUIRED, 'The version number for the migration')
              ->setDescription('Redo a specific migration')
              ->setHelp(<<<EOT

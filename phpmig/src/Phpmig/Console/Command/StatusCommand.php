@@ -31,7 +31,7 @@ class StatusCommand extends AbstractCommand
     {
         parent::configure();
 
-        $this->setName('status')
+        $this->setName('migrate:status')
              ->setDescription('Show the up/down status of all migrations')
              ->setHelp(<<<EOT
 The <info>status</info> command prints a list of all migrations, along with their current status 

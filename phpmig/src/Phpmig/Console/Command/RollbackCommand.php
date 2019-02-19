@@ -33,7 +33,7 @@ class RollbackCommand extends AbstractCommand
     {
         parent::configure();
 
-        $this->setName('rollback')
+        $this->setName('migrate:rollback')
              ->addOption('--target', '-t', InputArgument::OPTIONAL, 'The version number to rollback to')
              ->setDescription('Rollback last, or to a specific migration')
              ->setHelp(<<<EOT

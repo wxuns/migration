@@ -33,7 +33,7 @@ class UpCommand extends AbstractCommand
     {
         parent::configure();
 
-        $this->setName('up')
+        $this->setName('migrate:up')
              ->addArgument('version', InputArgument::REQUIRED, 'The version number for the migration')
              ->setDescription('Run a specific migration')
              ->setHelp(<<<EOT

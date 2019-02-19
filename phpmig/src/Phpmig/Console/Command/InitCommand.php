@@ -131,7 +131,9 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 
     return \$capsule;
 };
-
+\$container['Schema'] = function (){
+    return Capsule::schema();
+};
 \$container['phpmig.adapter'] = function(\$c) {
     return new Adapter\Illuminate\Database(\$c['db'], 'migrations');
 };

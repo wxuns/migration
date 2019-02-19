@@ -33,7 +33,7 @@ class MigrateCommand extends AbstractCommand
     {
         parent::configure();
 
-        $this->setName('migrate')
+        $this->setName('migrate:run')
              ->addOption('--target', '-t', InputArgument::OPTIONAL, 'The version number to migrate to')
              ->setDescription('Run all migrations')
              ->setHelp(<<<EOT

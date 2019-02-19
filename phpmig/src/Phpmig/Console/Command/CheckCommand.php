@@ -20,7 +20,7 @@ class CheckCommand extends AbstractCommand
     {
         parent::configure();
 
-        $this->setName('check')
+        $this->setName('migrate:check')
              ->setDescription('Check all migrations have been run, exit with non-zero if not')
              ->setHelp(<<<EOT
 The <info>check</info> checks that all migrations have been run and exits with a 
